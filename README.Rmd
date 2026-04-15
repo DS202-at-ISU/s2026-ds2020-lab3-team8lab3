@@ -46,6 +46,16 @@ deaths <- av |>
     Time  = parse_number(Time),
     Death = factor(Death, levels = c("YES", "NO", ""))
 ) |> filter(Death != "")
+
+returns <- av |>  
+   pivot_longer(cols = c(Return1, Return2, Return3, Return4, Return5), 
+               names_to = "Time", 
+               values_to = "Return")|>
+  mutate(
+    Time  = parse_number(Time),
+    Return = factor(Return, levels = c("YES", "NO", ""))
+) |> filter(Return != "")
+
          
 ```
 
@@ -60,6 +70,7 @@ deaths_count <- deaths  |>
 mean(deaths_count$Total_death)
 
 ```
+
 
 
 ## Individually
