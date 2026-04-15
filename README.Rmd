@@ -53,12 +53,11 @@ deaths <- av |>
 Based on these datasets calculate the average number of deaths an Avenger suffers.
 
 ```{r}
-deaths |> 
+deaths_count <- deaths  |> 
   filter(Death != "NO") |> 
-  group_by(Name.Alias) |> 
-  summarise(
-    n()
-  )
+  count(Name.Alias, name = "Total_death") 
+
+mean(deaths_count$Total_death)
 
 ```
 
