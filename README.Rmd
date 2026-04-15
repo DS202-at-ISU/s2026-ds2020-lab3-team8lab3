@@ -4,19 +4,17 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Lab report #3 - instructions
 
-Follow the instructions posted at https://ds202-at-isu.github.io/labs.html for the lab assignment. The work is meant to be finished during the lab time, but you have time until Monday evening to polish things.
+Follow the instructions posted at <https://ds202-at-isu.github.io/labs.html> for the lab assignment. The work is meant to be finished during the lab time, but you have time until Monday evening to polish things.
 
-Include your answers in this document (Rmd file). Make sure that it knits properly (into the md file). Upload both the Rmd and the md file to your repository.  
+Include your answers in this document (Rmd file). Make sure that it knits properly (into the md file). Upload both the Rmd and the md file to your repository.
 
-All submissions to the github repo will be automatically uploaded for grading once the due date is passed.
-Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
+All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
 
 # Lab 3: Avenger's Peril
 
@@ -31,12 +29,11 @@ library(tidyverse)
 head(av)
 ```
 
-Get the data into a format where the five columns for Death[1-5] are replaced by two columns: Time, and Death. Time should be a number between 1 and 5 (look into the function `parse_number`); Death is a categorical variables with values "yes", "no" and "". Call the resulting data set `deaths`. 
+Get the data into a format where the five columns for Death[1-5] are replaced by two columns: Time, and Death. Time should be a number between 1 and 5 (look into the function `parse_number`); Death is a categorical variables with values "yes", "no" and "". Call the resulting data set `deaths`.
 
 Similarly, deal with the returns of characters.
 
 ```{r}
-
   
 deaths <- av |>  
    pivot_longer(cols = c(Death1, Death2, Death3, Death4, Death5), 
@@ -59,7 +56,6 @@ returns <- av |>
          
 ```
 
-
 Based on these datasets calculate the average number of deaths an Avenger suffers.
 
 ```{r}
@@ -71,11 +67,9 @@ mean(deaths_count$Total_death)
 
 ```
 
-
-
 ## Individually
 
-For each team member, copy this part of the report. 
+For each team member, copy this part of the report.
 
 Each team member picks one of the statements in the FiveThirtyEight [analysis](https://fivethirtyeight.com/features/avengers-death-comics-age-of-ultron/) and fact checks it based on the data. Use dplyr functionality whenever possible.
 
@@ -93,69 +87,35 @@ Include at least one sentence discussing the result of your fact-checking endeav
 
 Upload your changes to the repository. Discuss and refine answers as a team.
 
-
 Nicolas
+
 ```{R}
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Trey
+
 ```{R}
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Amelia
+
+Fact: What’s more, if you’re a fan of the MCU, nobody is safe. Of the nine Avengers we see on screen — Iron Man, Hulk, Captain America, Thor, Hawkeye, Black Widow, Scarlet Witch, Quicksilver and The Vision — every single one of them has died at least once in the course of their time Avenging in the comics. In fact, Hawkeye died twice!
+
+This fact is true! All 9 of the Avengers do die at least once, and Hawkeye dies twice. Thor also dies twice.
+
 ```{R}
+avengers <- c("Natalia Alianovna Romanova",
+              "Anthony Edward \"Tony\" Stark",
+              "Wanda Maximoff",
+              "Robert Bruce Banner",
+              "Thor Odinson",
+              "Pietro Maximoff",
+              "Clinton Francis Barton",
+              "Steven Rogers",
+              "Victor Shade (alias)")
+deaths_count |> filter(Name.Alias %in% avengers) |> 
+  select(Total_death)
 
 ```
-
-
-
-
