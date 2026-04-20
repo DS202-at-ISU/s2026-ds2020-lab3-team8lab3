@@ -95,8 +95,15 @@ Nicolas
 
 Trey
 
-```{R}
+Statement: "The MVP of the Earth-616 Marvel Universe Avengers has to be Jocasta — an android based on Janet van Dyne and built by Ultron — who has been destroyed five times and then recovered five times."
 
+This statement is confirmed to be true based on the data provided.
+```{R}
+deaths_count %>%
+  filter(Name.Alias == 'Jocasta')
+returns %>%
+  filter(Name.Alias == 'Jocasta') %>%
+  select(Name.Alias, Time, Return)
 ```
 
 Amelia
